@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Person — Brands</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --card:#f9fafb;
+      --accent:#2563eb;
+      --muted:#6b7280;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:var(--bg);color:#111827}
+    .container{max-width:1200px;margin:40px auto;display:grid;grid-template-columns:1fr 2fr;gap:32px;padding:24px}
+
+    /* Левая картинка */
+    .left{
+      background:var(--card);
+      border-radius:16px;
+      padding:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+      overflow:hidden;
+    }
+    .left img{
+      width:100%;
+      height:100%;
+      border-radius:16px;
+      object-fit:cover;
+    }
+
+    /* Правая часть */
+    .right{
+      background:var(--card);
+      border-radius:18px;
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      gap:28px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    /* Бренды */
+    .brand-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+      gap:20px;
+    }
+    .brand{
+      background:#fff;
+      border-radius:14px;
+      overflow:hidden;
+      transition:transform .2s,box-shadow .2s;
+      border:1px solid #e5e7eb;
+    }
+    .brand:hover{
+      transform:translateY(-6px) scale(1.03);
+      box-shadow:0 6px 16px rgba(0,0,0,0.12);
+    }
+    .brand a{display:block}
+    .brand img{
+      width:100%;
+      height:120px;
+      object-fit:contain;
+      padding:12px;
+    }
+
+    h1{margin:0;font-size:24px;color:#111827}
+    p{margin:0;color:var(--muted);font-size:15px}
+
+    footer{font-size:13px;color:var(--muted);text-align:center;margin-top:12px}
+
+    @media(max-width:900px){
+      .container{grid-template-columns:1fr;padding:16px}
+      .brand img{height:100px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="left" aria-label="Person photo">
+      <img src="./img/seo.jpg" alt="Person" />
+    </section>
+
+    <aside class="right" aria-label="Brands">
+      <div class="brand-grid">
+        <div class="brand"><a href="https://www.anfa.uz" target="_blank"><img src="./img/anfapharmaceuticals.jpg" alt="ANFA" /></a></div>
+        <div class="brand"><a href="#"><img src="./img/angagroup.jpg" alt="Viva Herba" /></a></div>
+        <div class="brand"><a href="https://www.cfu.uz" target="_blank"><img src="./img/cfu.jpg" alt="CFU" /></a></div>
+        <div class="brand"><a href="https://www.hafna.uz" target="_blank"><img src="./img/hafna.jpg" alt="HAFNA" /></a></div>
+        <div class="brand"><a href="https://www.vivaherba.uz" target="_blank"><img src="./img/viava.jpg" alt="Brand 5" /></a></div>
+      </div>
+      <footer>
+        © <span id="year"></span> Personal Brand — All rights reserved
+      </footer>
+    </aside>
+  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
